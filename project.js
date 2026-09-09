@@ -199,6 +199,9 @@ const trips = [
 
 
 menu(); 
+choixDeMenu();
+
+
 
 
 
@@ -225,7 +228,7 @@ function menu(){
     }
 }
 
-
+function choixDeMenu(){
 let choix ;
 do {
     
@@ -234,7 +237,7 @@ do {
     switch(choix){
         case 1:
             {
-                console.log("choix 1");
+                afficherTrager()
                 break;
             }
         case 2:
@@ -272,3 +275,22 @@ do {
             }
     }
 } while (choix != 0);
+}
+
+
+
+function afficherTrager() {
+    for(let i = 0; i < trips.length; i++){
+        console.log(`#${trips[i].id} ${trips[i].departure} -> ${trips[i].destination}`);
+        console.log(`Départ : ${trips[i].departureTime}`);
+        console.log(`Arrivée : ${trips[i].arrivalTime}`);
+        console.log(`Prix : ${trips[i].price}`);
+        console.log(`Places disponibles : ${trips[i].availableSeats}`);
+        console.log('\n');
+        
+    }
+}
+
+
+
+
