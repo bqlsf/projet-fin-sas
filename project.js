@@ -11,6 +11,8 @@ let Quetions = [
     "0 . Quitter "
 ];
 
+
+
 const trips = [
 
     {
@@ -195,7 +197,11 @@ const trips = [
     }
 ];
 
-// ------------------------------------------------------
+let nomdepasssajeur;
+let identifiantTrajet ;
+const tickets = [];
+
+// -----------------------------------------------------------------------------------
 
 
 menu(); 
@@ -206,7 +212,7 @@ choixDeMenu();
 
 
 
-// --------------------------------------------------------
+// -------------------------------------------------------------------------------------
 
 
 
@@ -292,5 +298,31 @@ function afficherTrager() {
 }
 
 
+
+
+
+function creertickets(tickets){
+tickets.push({idTicket , passagerNom , departure , destination , numPlace , price   })
+}
+
+
+function acheterTrajet(){
+    nomdepasssajeur = prompt("entrez votre nom de passajeur :");
+    identifiantTrajet =Number(prompt("entrez identifiant de votre trajet :"));
+
+    for(let i = 0; i < trips.length; i++){
+        if(trips[i] == identifiantTrajet){
+            if(trips[i].availableSeats > 0){
+                creertickets();
+            }else{
+                console.log("Train complet")
+            }
+
+        }else {
+            console.log("Trajet introuvable.")
+        }
+    }
+
+}
 
 
