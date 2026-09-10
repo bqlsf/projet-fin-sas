@@ -2,10 +2,10 @@ var prompt = require('prompt-sync')();
 
 let Quetions = [
     "1 . Afficher Les trajets",
-    "2 . Acheter un teket " , 
-    "3 . afficher les tekets" , 
-    "4 . annuler un tekes" , 
-    "5 . Rechercher un teket", 
+    "2 . Acheter un ticket " , 
+    "3 . afficher les tickets" , 
+    "4 . annuler un ticket" , 
+    "5 . Rechercher un ticket", 
     "6 . filtrer les trajets" , 
     "7 . trier les trajet" ,
     "0 . Quitter "
@@ -238,7 +238,7 @@ function choixDeMenu(){
 let choix ;
 do {
     
-    choix = Number(prompt("entrez cvotre choix : "));
+    choix = Number(prompt("entrez votre choix : "));
 
     switch(choix){
         case 1:
@@ -263,7 +263,7 @@ do {
             }
         case 5:
             {
-                console.log("choix 5");
+                rechercherTicket();
                 break;
             }
         case 6:
@@ -300,11 +300,16 @@ function afficherTrager() {
 
 
 
-
+/*
 function creertickets(tickets){
-tickets.push({ idTicket , passagerNom , departure , destination , numPlace , price   })
-
-}
+tickets.push({ 
+    idTicket : 1,
+    passagerNom : nomdepasssajeur ,
+    departure : trips[i].departure,
+    destination : trips[i].destination,
+    numPlace  , 
+    prix : trips[i].price   },)
+}*/
 
 
 function acheterTicket(){
@@ -314,9 +319,14 @@ function acheterTicket(){
     for(let i = 0; i < trips.length; i++){
         if(trips[i].id == identifiantTrajet){
             if(trips[i].availableSeats > 0){
-                creertickets();
-                break;
-            }else{
+                tickets.push({ 
+    idTicket : 1,
+    passagerNom : nomdepasssajeur ,
+    departure : trips[i].departure,
+    destination : trips[i].destination,
+    numPlace : 12 , 
+    prix : trips[i].price   },)
+                }else{
                 console.log("Train complet");
                 break;
             }
@@ -344,6 +354,33 @@ function afficherLesTickets(tickets){
 }
 
 }
+
+
+function annulerTicket(){
+    let nombre = Number(prompt("entrez identifiant de ticket:"));
+    for(let i = 0; i < tickets.length; i++)
+    {
+        if(nombre == tickets[i].idTicket){
+            for(let j = 0; j < trips[j]; j++)
+            if(tickets[i].departure == trips[j].departure && tickets[i].destination == trips[j].destination)
+            {
+                tickets.splice(i, 1);
+                trips[j].availableSeats++;
+                 console.log(`Identifiant du ticket :${tickets[i].idTicket}`);
+                console.log(`Ticket annulé avec succès.`)
+                break;
+            }else {
+            
+                console.log(`Ticket introvable.`)
+                break;
+            }
+        }
+    }
+}
+
+
+
+
 
 
 
